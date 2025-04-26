@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports for Hope | Nonprofit Youth Sports Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #f59e0b;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .location-badge {
+            margin-top: 1rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Navigation */
+        .tab-nav {
+            background-color: var(--dark);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: white;
+            padding: 1rem 1.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px 3px 0 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -5rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 2.2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 5rem 0;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Section Headings */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .section-heading h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .section-heading h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-heading p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .highlight-box {
+            background: rgba(37, 99, 235, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Sports Section */
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .sport-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sport-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .sport-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .sport-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .sport-info {
+            padding: 1.5rem;
+        }
+
+        .sport-info h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .sport-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .sport-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Pricing Section */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.popular::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 0 10px 0 10px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            margin-left: 0.2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* Coaches Section */
+        .coaches-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .coach-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .coach-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .coach-image {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .coach-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .coach-card:hover .coach-image img {
+            transform: scale(1.1);
+        }
+
+        .coach-social {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .coach-card:hover .coach-social {
+            opacity: 1;
+        }
+
+        .coach-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .coach-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .coach-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .coach-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .coach-title {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .coach-bio {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .coach-sports {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .sport-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Mission Section */
+        .mission {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 5rem 0;
+            position: relative;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+            margin: 5rem 0;
+        }
+
+        .mission .section-heading h2 {
+            color: white;
+        }
+
+        .mission .section-heading p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .mission-statement {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .mission-statement p {
+            margin-bottom: 1.5rem;
+        }
+
+        .charity-partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .charity-logo {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .charity-logo:hover {
+            transform: translateY(-5px);
+        }
+
+        .charity-logo img {
+            max-height: 50px;
+            max-width: 150px;
+            filter: grayscale(100%) contrast(40%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .charity-logo:hover img {
+            filter: none;
+            opacity: 1;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light);
+            padding: 5rem 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 4rem;
+            color: rgba(37, 99, 235, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--gray);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+
+        .contact-text p, .contact-text a {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-heading h2 {
+                font-size: 2rem;
+            }
+            
+            .tab-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 80vh;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">Sports for Hope</div>
+            <div class="tagline">Bridging the Gap Through Sports Education & Community Support</div>
+            <div class="location-badge">📍 Hillsborough, NJ | Serving Surrounding Areas</div>
+        </div>
+    </header>
+    
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn active" onclick="openTab('about')">About Us</button>
+        <button class="tab-btn" onclick="openTab('sports')">Our Programs</button>
+        <button class="tab-btn" onclick="openTab('pricing')">Pricing</button>
+        <button class="tab-btn" onclick="openTab('coaches')">Coaches</button>
+        <button class="tab-btn" onclick="openTab('impact')">Our Impact</button>
+        <button class="tab-btn" onclick="openTab('contact')">Get Started</button>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Empowering Youth Through Sports Accessibility</h1>
+            <p>Professional sports instruction at affordable rates, with 100% of profits funding athletic opportunities for underprivileged children in urban communities.</p>
+            <div>
+                <a href="#pricing" class="btn" onclick="openTab('pricing')">View Programs</a>
+                <a href="#contact" class="btn btn-secondary" onclick="openTab('contact')">Book a Lesson</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Tab -->
+    <div id="about" class="tab-content active">
+        <div class="container">
+            <div class="section-heading">
+                <h2>About Sports for Hope</h2>
+                <p>Founded by student-athletes committed to social change, we're redefining sports education through community reinvestment</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>More Than Just Sports Lessons</h3>
+                    <p>Sports for Hope was founded in 2023 by Bryan Suprien and Aaron Haldar, two high school athletes who recognized the growing disparity in sports accessibility for lower-income families. What began as a simple idea to share their athletic expertise has grown into a nonprofit movement that combines quality sports instruction with meaningful community impact.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Our unique model:</strong> For every paid lesson we provide, we're able to fund equipment, coaching, and facilities for children who otherwise couldn't participate in organized sports. It's a win-win that elevates entire communities through athletic opportunity.</p>
+                    </div>
+                    
+                    <p>We specialize in introductory and intermediate level training for tennis, soccer, cricket, and volleyball - focusing on fundamental skills, sportsmanship, and personal development. Our coaches are not just skilled athletes, but mentors committed to making sports accessible to all.</p>
+                    
+                    <p>Based in Hillsborough, NJ, we serve families throughout Somerset County with flexible scheduling and locations. Additional travel fees may apply for lessons beyond a 10-mile radius from our home base.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1541216970279-affbfdd55aa8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Diverse group of young athletes playing sports">
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Profits Donated</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Sports Offered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Expert Coaches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Youth Impacted</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sports Tab -->
+    <div id="sports" class="tab-content">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Our Sports Programs</h2>
+                <p>Quality instruction in four popular sports, designed for beginners and intermediate players aged 8-18</p>
+            </div>
+            
+            <div class="sports-grid">
+                <div class="sport-card">
+                    <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tennis instruction">
+                    <div class="sport-info">
+                        <div class="sport-icon">🎾</div>
+                        <h3>Tennis</h3>
+                        <p>Develop proper stroke technique, footwork, and match strategy through our progressive tennis curriculum. Perfect for players looking to learn fundamentals or improve their competitive game.</p>
+                    </div>
+                </div>
+                <div class="sport-card">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Soccer training">
+                    <div class="sport-info">
+                        <div class="sport-icon">⚽</div>
+                        <h3>Soccer</h3>
+                        <p>Master ball control, passing, shooting, and game awareness through dynamic drills and small-sided games. Our program emphasizes technical skills and soccer IQ development.</p>
+                    </div>
+                </div>
+                <div class="sport-card">
+                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cricket coaching">
+                    <div class="sport-info">
+                        <div class="sport-icon">🏏</div>
+                        <h3>Cricket</h3>
+                        <p>Learn proper batting, bowling, and fielding techniques from a national-level player. Our cricket program introduces this growing sport to new players while developing competitive skills.</p>
+                    </div>
+                </div>
+                <div class="sport-card">
+                    <img src="https://images.unsplash.com/photo-1544468396-5909c5d21015?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Volleyball lessons">
+                    <div class="sport-info">
+                        <div class="sport-icon">🏐</div>
+                        <h3>Volleyball</h3>
+                        <p>From serving and passing to attacking and blocking, our volleyball instruction covers all aspects of the game with a focus on proper mechanics and team play.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pricing Tab -->
+    <div id="pricing" class="tab-content">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Affordable Pricing</h2>
+                <p>Professional instruction at accessible rates, with all proceeds supporting our nonprofit mission</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Group Lessons</h3>
+                    <div class="price">$6 <span>/ hour</span></div>
+                    <ul class="pricing-features">
+                        <li>Small groups of 4-6 students</li>
+                        <li>Social, interactive environment</li>
+                        <li>Great for friends or team training</li>
+                        <li>All skill levels welcome</li>
+                        <li>Focus on fundamentals & fun</li>
+                    </ul>
+                    <a href="#contact" class="btn" onclick="openTab('contact')">Enroll Now</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <h3>Private Lessons</h3>
+                    <div class="price">$20 <span>/ hour</span></div>
+                    <ul class="pricing-features">
+                        <li>One-on-one personalized coaching</li>
+                        <li>Customized training plan</li>
+                        <li>Flexible scheduling</li>
+                        <li>Rapid skill development</li>
+                        <li>Video analysis
